@@ -1,7 +1,10 @@
 import math
 import numpy
 from tkinter import *
-#TODO сделать проверку того что если у меня все содержимое списка только списки длиной 1 то нужно просто печатать по порядку
+
+
+# TODO сделать проверку того что если у меня все содержимое списка только списки длиной 1 то нужно просто печатать по
+#  порядку
 
 def GetCol(size, n):
     return math.ceil(size / n)
@@ -25,7 +28,7 @@ def getStroks(list, n):
 
 def TranspMatr(list):
     v = []
-    for i in range(len(list)-1):
+    for i in range(len(list) - 1):
         v.append(list[i])
     matr = numpy.array(v)
     matr = matr.transpose()
@@ -33,7 +36,7 @@ def TranspMatr(list):
     stroka = ""
     for i in matr:
         stroka = stroka + str(i) + "\n"
-    stroka = stroka.replace("[","")
+    stroka = stroka.replace("[", "")
     stroka = stroka.replace("[ ", "")
     stroka = stroka.replace("]", "")
     file = open("answer.txt", "w")
@@ -53,6 +56,8 @@ def TranspMatr(list):
     file = open("answer.txt", "w")
     file.write(stroka)
     file.close()
+
+
 def Action():
     number = int(a.get())
     spisoc = []
@@ -60,8 +65,6 @@ def Action():
         spisoc.append(number)
         number = number + 1
     TranspMatr(getStroks(spisoc, int(numberstolb.get())))
-
-
 
 
 if __name__ == '__main__':
