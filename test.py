@@ -1,6 +1,6 @@
 import math
 import numpy
-import re
+from tkinter import *
 #TODO сделать проверку того что если у меня все содержимое списка только списки длиной 1 то нужно просто печатать по порядку
 
 def GetCol(size, n):
@@ -53,15 +53,33 @@ def TranspMatr(list):
     file = open("answer.txt", "w")
     file.write(stroka)
     file.close()
+def Action():
+    number = int(a.get())
+    spisoc = []
+    while number <= int(b.get()):
+        spisoc.append(number)
+        number = number + 1
+    TranspMatr(getStroks(spisoc, int(numberstolb.get())))
+
 
 
 
 if __name__ == '__main__':
-    a = int(input())
-    b = int(input())
-    number = a
-    spisoc = []
-    while number <= b:
-        spisoc.append(number)
-        number = number + 1
-    TranspMatr(getStroks(spisoc, 4))
+    root = Tk()
+    root.geometry("300x180")
+    numberstolb = Entry(root, width=30)
+    text1 = Label(root, text="Введите кол-во столбцов")
+    text2 = Label(root, text="Введите нижнию границу")
+    text3 = Label(root, text="Введите верхнюю границу")
+    a = Entry(root, width=30)
+    b = Entry(root, width=30)
+    button = Button(root, text="Заполнить файл", command=Action)
+    text1.pack()
+    numberstolb.pack()
+    text2.pack()
+    a.pack()
+    text3.pack()
+    b.pack()
+    button.pack()
+    root.resizable(width=False, height=False)
+    root.mainloop()
