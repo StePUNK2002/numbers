@@ -3,8 +3,6 @@ import numpy
 from tkinter import *
 
 
-# TODO сделать проверку того что если у меня все содержимое списка только списки длиной 1 то нужно просто печатать по
-#  порядку
 
 def GetCol(size, n):
     return math.ceil(size / n)
