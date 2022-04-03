@@ -42,18 +42,34 @@ def TranspMatr(list):
     file.close()
     mass = stroka.split("\n")
     mass = mass[:-1]
-    for i in range(len(list[-1])):
-        mass[i] = mass[i] + " " + str(list[-1][i])
-    print(mass)
-    stroka = ""
-    for i in mass:
-        stroka = stroka + i + "\n"
-    stroka = stroka.replace("  ", " ")
-    if len(list[0]) == len(list[-1]) and stroka[0] == " ":
-        stroka = stroka[1:]
-    file = open("answer.txt", "w")
-    file.write(stroka)
-    file.close()
+    if numberstolb.get() != "1" and numberstolb.get() != "0":
+        for i in range(len(list[-1])):
+            mass[i] = mass[i] + " " + str(list[-1][i])
+        print(mass)
+        stroka = ""
+        for i in mass:
+            stroka = stroka + i + "\n"
+        # stroka = stroka.replace("  ", " ")
+        if len(list[0]) == len(list[-1]) and stroka[0] == " ":
+            stroka = stroka[1:]
+        file = open("answer.txt", "w")
+        file.write(stroka)
+        file.close()
+    elif numberstolb.get() == "1":
+        v = []
+        for i in range(len(list)):
+            v.append(list[i])
+        matr = numpy.array(v)
+        matr = matr.transpose()
+        stroka = ""
+        for i in matr:
+            stroka = stroka + str(i) + "\n"
+        stroka = stroka.replace("[", "")
+        stroka = stroka.replace("[ ", "")
+        stroka = stroka.replace("]", "")
+        file = open("answer.txt", "w")
+        file.write(stroka)
+        file.close()
 
 
 def Action():
